@@ -6,8 +6,14 @@ namespace Project_Antz_Console
     {
         public static void Main(string[] args)
         {
-            Player player = new Player("FeuFeve");
             Console.WriteLine("From Game: Hello world!");
+            
+            Server server1 = new Server("S1", 10);
+            server1.DisplayPlayers();
+            
+            Player player = new Player("FeuFeve");
+            server1.AddPlayer(player);
+            server1.DisplayPlayers();
         }
     }
 }

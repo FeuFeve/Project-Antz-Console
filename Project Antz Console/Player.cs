@@ -2,15 +2,20 @@
 
 namespace Project_Antz_Console
 {
-    public class Player
+    internal class Player
     {
         internal string Pseudo;
         internal Army Army;
 
-        public Player(string pseudo)
+        internal Player(string pseudo)
         {
             Pseudo = pseudo;
             Army = new Army();
+        }
+
+        internal void DisplayBasics()
+        {
+            Console.WriteLine(Pseudo);
         }
     }
 }
