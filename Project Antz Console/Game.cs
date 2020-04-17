@@ -8,14 +8,17 @@ namespace Project_Antz_Console
         {
             Console.WriteLine("From Game: Hello world!");
             
-            // Server server1 = new Server("S1", 10);
-            // server1.DisplayPlayers();
-            //
-            // Player player = new Player("FeuFeve");
-            // server1.AddPlayer(player);
-            // server1.DisplayPlayers();
+            Server server1 = new Server("S1", 10);
+            Player player = new Player("FeuFeve");
+            server1.AddPlayer(player);
             
-            CommandManager.WaitForNextCommand();
+            CommandManager.Init(server1, player);
+
+            bool play = true;
+            while (play)
+            {
+                play = CommandManager.ExecuteNextCommand();
+            }
         }
     }
 }
