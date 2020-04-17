@@ -36,12 +36,20 @@ namespace Project_Antz_Console
                                 Server.DisplayPlayers();
                                 break;
                             
+                            case "army":
+                                CurrentPlayer.Army.DisplayArmy();
+                                break;
+                            
                             default:
                                 DisplayUnknownCommand();
                                 break;
                         }
                         break;
                     
+                    case "lay":
+                        CurrentPlayer.Lay(args[1], Int32.Parse(args[2]));
+                        break;
+
                     case "quit":
                         Console.WriteLine("- Exiting the game.");
                         return false;
@@ -51,10 +59,9 @@ namespace Project_Antz_Console
                         break;
                 }
             }
-            catch (Exception e)
+            catch (IndexOutOfRangeException)
             {
-                Console.WriteLine(e);
-                throw;
+                DisplayUnknownCommand();
             }
 
             return true;

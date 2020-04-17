@@ -13,6 +13,11 @@ namespace Project_Antz_Console
             Army = new Army();
         }
 
+        internal void Lay(string type, int count)
+        {
+            Army.Lay(type, count);
+        }
+
         internal void DisplayBasics()
         {
             Console.WriteLine(Pseudo);
