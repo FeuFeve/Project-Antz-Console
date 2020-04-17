@@ -9,8 +9,12 @@ namespace Project_Antz_Console
 
         internal Army()
         {
-            Units["jsn"] = new Unit("Young Dwarves");
-            Units["js"] = new Unit("Young Soldiers");
+            Unit.Init();
+
+            foreach (KeyValuePair<string, string> entry in Unit.RecognizedTypes)
+            {
+                Units[entry.Key] = new Unit(entry.Key);
+            }
         }
 
         internal void Lay(string type, int count)
@@ -32,7 +36,12 @@ namespace Project_Antz_Console
             foreach (KeyValuePair<string, Unit> kvp in Units)
             {
                 Unit unit = kvp.Value;
-                Console.WriteLine("* " + unit.Count + " " + unit.Type);
+                string line = "* " + unit.Count
+                            + " " + unit.Type
+                            + " (life: " + unit.Stats["life"]
+                            + ", attack: " + unit.Stats["attack"]
+                            + ", defense: " + unit.Stats["defense"] + ")";
+                Console.WriteLine(line);
             }
         }
     }
