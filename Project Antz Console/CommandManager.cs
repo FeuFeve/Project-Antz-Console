@@ -32,11 +32,11 @@ namespace Project_Antz_Console
                     case "access":
                         switch (args[1])
                         {
-                            case "players":
+                            case "players":                                             // access players
                                 Server.DisplayPlayers();
                                 break;
                             
-                            case "army":
+                            case "army":                                                // access army
                                 CurrentPlayer.Army.DisplayArmy();
                                 break;
                             
@@ -46,11 +46,11 @@ namespace Project_Antz_Console
                         }
                         break;
                     
-                    case "lay":
+                    case "lay":                                                         // lay <jsn> <100>
                         CurrentPlayer.Lay(args[1], Int32.Parse(args[2]));
                         break;
 
-                    case "quit":
+                    case "quit":                                                        // quit
                         Console.WriteLine("- Exiting the game.");
                         return false;
                     
