@@ -30,9 +30,31 @@ namespace Project_Antz_Console
             }
         }
 
+        internal Dictionary<string, double> CalculateArmyStats()
+        {
+            double life = 0;
+            double attack = 0;
+            double defense = 0;
+
+            foreach (KeyValuePair<string, Unit> kvp in Units)
+            {
+                Unit unit = kvp.Value;
+                life += unit.Stats["life"];
+                attack += unit.Stats["attack"];
+                defense += unit.Stats["defense"];
+            }
+
+            Dictionary<string, double> ArmyStats = new Dictionary<string, double>();
+            ArmyStats["life"] = life;
+            ArmyStats["attack"] = attack;
+            ArmyStats["defense"] = defense;
+
+            return ArmyStats;
+        }
+
         internal void DisplayArmy()
         {
-            Console.WriteLine("Army:");
+            Console.WriteLine("### Army: ###");
             foreach (KeyValuePair<string, Unit> kvp in Units)
             {
                 Unit unit = kvp.Value;
@@ -43,6 +65,30 @@ namespace Project_Antz_Console
                             + ", defense: " + unit.Stats["defense"] + ")";
                 Console.WriteLine(line);
             }
+            
+            Console.WriteLine("### Full stats: ###");
+            
+            Dictionary<string, double> ArmyStats = CalculateArmyStats();
+            Console.WriteLine($"* Life: {ArmyStats["life"]}");
+            Console.WriteLine($"* Attack: {ArmyStats["attack"]}");
+            Console.WriteLine($"* Defense: {ArmyStats["defense"]}");
+        }
+
+        internal string ToStringFightingTroops()
+        {
+            string fightingTroops = "";
+            foreach (KeyValuePair<string, Unit> kvp in Units)
+            {
+                if (!String.IsNullOrEmpty(fightingTroops))
+                {
+                    fightingTroops += ", ";
+                }
+                
+                Unit unit = kvp.Value;
+                fightingTroops += unit.Count + " " + unit.Type;
+            }
+
+            return fightingTroops + ".";
         }
     }
 }

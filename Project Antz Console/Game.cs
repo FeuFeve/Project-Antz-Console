@@ -15,6 +15,12 @@ namespace Project_Antz_Console
             server1.AddPlayer(player);
             
             CommandManager.Init(server1, player);
+            
+            // Testing
+            Player toAttack = server1.Players["Player0"];
+            toAttack.Lay("jsn", 1000);
+            toAttack.Lay("js", 250);
+            toAttack.Lay("tk", 100);
 
             bool play = true;
             while (play)

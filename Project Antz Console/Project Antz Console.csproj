@@ -70,6 +70,7 @@
     <ItemGroup>
         <Compile Include="Army.cs" />
         <Compile Include="CommandManager.cs" />
+        <Compile Include="FightManager.cs" />
         <Compile Include="Game.cs" />
         <Compile Include="JsonFile.cs" />
         <Compile Include="JsonReader.cs" />

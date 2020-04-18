@@ -15,7 +15,7 @@ namespace Project_Antz_Console
         
         internal static bool ExecuteNextCommand()
         {
-            Console.Write("> ");
+            Console.Write("\n> ");
 
             string command = Console.ReadLine();
             if (command == null)
@@ -48,6 +48,12 @@ namespace Project_Antz_Console
                     
                     case "lay":                                                         // lay <jsn> <100>
                         CurrentPlayer.Lay(args[1], Int32.Parse(args[2]));
+                        break;
+                    
+                    case "attack":
+                        Player defender = Server.Players[args[1]];
+                        FightManager FM = new FightManager(CurrentPlayer, defender, CurrentPlayer.Army, defender.Army);
+                        FM.Fight();
                         break;
 
                     case "quit":                                                        // quit
