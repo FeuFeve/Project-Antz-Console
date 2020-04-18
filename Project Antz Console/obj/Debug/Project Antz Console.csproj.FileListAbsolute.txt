@@ -1,0 +1,17 @@
+C:\Users\FeuFeve\RiderProjects\Project Antz Console\Project Antz Console\bin\Debug\Project_Antz_Console.exe
+C:\Users\FeuFeve\RiderProjects\Project Antz Console\Project Antz Console\bin\Debug\Project_Antz_Console.pdb
+C:\Users\FeuFeve\RiderProjects\Project Antz Console\Project Antz Console\obj\Debug\Project Antz Console.csprojAssemblyReference.cache
+C:\Users\FeuFeve\RiderProjects\Project Antz Console\Project Antz Console\obj\Debug\Project Antz Console.csproj.CoreCompileInputs.cache
+C:\Users\FeuFeve\RiderProjects\Project Antz Console\Project Antz Console\obj\Debug\Project_Antz_Console.exe
+C:\Users\FeuFeve\RiderProjects\Project Antz Console\Project Antz Console\obj\Debug\Project_Antz_Console.pdb
+C:\Users\FeuFeve\RiderProjects\Project Antz Console\Project Antz Console\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\Users\FeuFeve\RiderProjects\Project Antz Console\Project Antz Console\bin\Debug\System.Security.AccessControl.dll
+C:\Users\FeuFeve\RiderProjects\Project Antz Console\Project Antz Console\bin\Debug\System.Security.Permissions.dll
+C:\Users\FeuFeve\RiderProjects\Project Antz Console\Project Antz Console\bin\Debug\System.Security.Principal.Windows.dll
+C:\Users\FeuFeve\RiderProjects\Project Antz Console\Project Antz Console\bin\Debug\System.Configuration.ConfigurationManager.xml
+C:\Users\FeuFeve\RiderProjects\Project Antz Console\Project Antz Console\bin\Debug\System.Security.AccessControl.xml
+C:\Users\FeuFeve\RiderProjects\Project Antz Console\Project Antz Console\bin\Debug\System.Security.Permissions.xml
+C:\Users\FeuFeve\RiderProjects\Project Antz Console\Project Antz Console\bin\Debug\System.Security.Principal.Windows.xml
+C:\Users\FeuFeve\RiderProjects\Project Antz Console\Project Antz Console\obj\Debug\Project Antz Console.csproj.CopyComplete
+C:\Users\FeuFeve\RiderProjects\Project Antz Console\Project Antz Console\bin\Debug\Newtonsoft.Json.dll
+C:\Users\FeuFeve\RiderProjects\Project Antz Console\Project Antz Console\bin\Debug\Newtonsoft.Json.xml
