@@ -1,0 +1,77 @@
+What's coming next :
+
+- Système de ressources
+	- Fichier json comme pour l'armée et les unités
+
+- Différenciation des serveurs
+	- Dossier Data
+		- Dossier Servers
+			- Dossier <Référence> à copier lors de la création d'un nouveau serveur
+				- Dossier Configs
+					- Fichier Units.json
+					- Fichier Buildings.json
+					- ...
+				- Dossier Logs
+					- 1 fichier log par joueur ? Seulement joueur humain ? Alliances ? Jeu dans l'ensemble ?
+				- Fichier Database.db avec alliances, joueurs, etc
+				- Fichier Save.?
+			- Dossier <Server1>
+				- ...
+			- ...
+
+- Système de logging
+
+- Système de sauvegarde propre à chaque serveur
+	- Serialize sur serveur suffisant ? → Comment réagit serialize à la modification du code ?
+
+- Système de temps de ponte
+	- Events avec date
+
+- Système de TdC
+	- Ajout des ouvrières
+	- Récoltes en fonction du TdC et des ouvrières
+	- Attaques (events avec date)
+	- Prises max 20%, attaque max 300% et min 50%
+
+- Système de commerce
+	- Envoie/reception de ressources avec ouvrières
+	- Events avec date
+
+- Amélioration du système d'attaque
+	- Colonisation et prises de ressources
+	- Simulation de l'xp de Fourmizzz
+
+- Système de chasse
+	- Génération d'armées aléatoire à vaincre
+	- Event avec date
+
+- Système de bâtiments
+	- Fichier json
+	- Event avec date
+
+- Système de recherches
+	- Fichier json
+	- Event avec date
+
+- Système de bonus constructions/recherches
+	- Fichier json des différents bonus du jeu ?
+	- TdP, VA, VC, Armes, Bouclier, xp, Dôme, Loge, ...
+
+- Différenciation humain/IA
+
+- Système d'alliances
+
+- Implémentation d'une IA ?
+
+
+
+Fait :
+
+- Système de serveurs
+
+- Système de joueurs
+
+- Système d'armée
+	- Fichier json pour unités custimisables
+
+- Système d'attaque
