@@ -32,40 +32,50 @@ namespace Project_Antz_Console
                     case "access":
                         switch (args[1])
                         {
-                            case "players":                                             // access players
+                            case "players": // access players
                                 Server.DisplayPlayers();
                                 break;
-                            
-                            case "army":                                                // access army
+
+                            case "army": // access army
                                 CurrentPlayer.Army.DisplayArmy();
                                 break;
-                            
+
                             default:
                                 DisplayUnknownCommand();
                                 break;
                         }
-                        break;
-                    
-                    case "lay":                                                         // lay <jsn> <100>
-                        CurrentPlayer.Lay(args[1], Int32.Parse(args[2]));
-                        break;
-                    
-                    case "attack":
-                        Player defender = Server.Players[args[1]];
-                        FightManager FM = new FightManager(CurrentPlayer, defender, CurrentPlayer.Army, defender.Army);
-                        FM.Fight();
+
                         break;
 
-                    case "quit":                                                        // quit
+                    case "lay": // lay <jsn> <100>
+                        CurrentPlayer.Lay(args[1], Int32.Parse(args[2]));
+                        break;
+
+                    case "attack": // attack <player>
+                        try
+                        {
+                            CurrentPlayer.Attack(Server.Players[args[1]]);
+                        }
+                        catch (System.Collections.Generic.KeyNotFoundException)
+                        {
+                            Console.WriteLine($"Player {args[1]} not found");
+                        }
+                        break;
+
+                    case "quit": // quit
                         Console.WriteLine("- Exiting the game.");
                         return false;
-                    
+
                     default:
                         DisplayUnknownCommand();
                         break;
                 }
             }
             catch (IndexOutOfRangeException)
+            {
+                DisplayUnknownCommand();
+            }
+            catch (FormatException)
             {
                 DisplayUnknownCommand();
             }

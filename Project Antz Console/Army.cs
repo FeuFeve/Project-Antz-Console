@@ -6,6 +6,7 @@ namespace Project_Antz_Console
     internal class Army
     {
         internal Dictionary<string, Unit> Units = new Dictionary<string, Unit>();
+        internal Dictionary<string, double> Stats = new Dictionary<string, double>();
 
         internal Army()
         {
@@ -35,21 +36,45 @@ namespace Project_Antz_Console
             double life = 0;
             double attack = 0;
             double defense = 0;
+            double count = 0;
 
             foreach (KeyValuePair<string, Unit> kvp in Units)
             {
                 Unit unit = kvp.Value;
+                unit.RecalculateStats();
+                
                 life += unit.Stats["life"];
                 attack += unit.Stats["attack"];
                 defense += unit.Stats["defense"];
+                count += unit.Count;
             }
 
-            Dictionary<string, double> ArmyStats = new Dictionary<string, double>();
-            ArmyStats["life"] = life;
-            ArmyStats["attack"] = attack;
-            ArmyStats["defense"] = defense;
+            Stats["life"] = life;
+            Stats["attack"] = attack;
+            Stats["defense"] = defense;
+            Stats["count"] = count;
 
-            return ArmyStats;
+            return Stats;
+        }
+
+        internal Dictionary<string, double> CalculateArmyStats(double remainingLife)
+        {
+            CalculateArmyStats();
+
+            if (remainingLife != 0)
+            {
+                foreach (KeyValuePair<string, Unit> kvp in Units)
+                {
+                    Unit unit = kvp.Value;
+                    if (unit.Count != 0)
+                    {
+                        unit.Stats["life"] = remainingLife;
+                        break;
+                    }
+                }
+            }
+            
+            return Stats;
         }
 
         internal void DisplayArmy()
@@ -79,15 +104,23 @@ namespace Project_Antz_Console
             string fightingTroops = "";
             foreach (KeyValuePair<string, Unit> kvp in Units)
             {
+                Unit unit = kvp.Value;
+                if (unit.Count == 0)
+                {
+                    continue;
+                }
                 if (!String.IsNullOrEmpty(fightingTroops))
                 {
                     fightingTroops += ", ";
                 }
                 
-                Unit unit = kvp.Value;
-                fightingTroops += unit.Count + " " + unit.Type;
+                fightingTroops += $"{unit.Count} {unit.Type}";
             }
 
+            if (String.IsNullOrEmpty(fightingTroops))
+            {
+                return "None.";
+            }
             return fightingTroops + ".";
         }
     }

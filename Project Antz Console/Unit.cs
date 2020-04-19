@@ -6,12 +6,12 @@ namespace Project_Antz_Console
     public class Unit
     {
         internal static Dictionary<string, string> RecognizedTypes = new Dictionary<string, string>();
-        internal static Dictionary<string, Dictionary<string, int>> UnitsStats = new Dictionary<string, Dictionary<string, int>>();
+        internal static Dictionary<string, Dictionary<string, double>> UnitsStats = new Dictionary<string, Dictionary<string, double>>();
         
         internal string Type;
         internal int Count;
-        internal Dictionary<string, int> BaseStats = new Dictionary<string, int>();
-        internal Dictionary<string, int> Stats = new Dictionary<string, int>();
+        internal Dictionary<string, double> BaseStats = new Dictionary<string, double>();
+        internal Dictionary<string, double> Stats = new Dictionary<string, double>();
 
         internal static void Init()
         {
@@ -23,7 +23,7 @@ namespace Project_Antz_Console
                 
                 RecognizedTypes[commandName] = name;
                 
-                Dictionary<string, int> unitDetails = new Dictionary<string, int>();
+                Dictionary<string, double> unitDetails = new Dictionary<string, double>();
 
                 unitDetails["life"] = unit.life;
                 unitDetails["attack"] = unit.attack;
@@ -35,7 +35,7 @@ namespace Project_Antz_Console
 
         internal Unit(string type)
         {
-            Dictionary<string, int> unitBaseStats = UnitsStats[RecognizedTypes[type]];
+            Dictionary<string, double> unitBaseStats = UnitsStats[RecognizedTypes[type]];
             if (unitBaseStats == null)
             {
                 throw new ArgumentException("Unit constructor: '" + type + "' is not a valid unit type.");
@@ -71,11 +71,7 @@ namespace Project_Antz_Console
         internal bool Add(int count)
         {
             Count += count;
-            
-            Stats["life"] += count * BaseStats["life"];
-            Stats["attack"] += count * BaseStats["attack"];
-            Stats["defense"] += count * BaseStats["defense"];
-            
+            RecalculateStats();
             return true;
         }
 
@@ -88,8 +84,23 @@ namespace Project_Antz_Console
             else
             {
                 Count -= count;
+                RecalculateStats();
                 return true;
             }
+        }
+
+        internal void RecalculateStats()
+        {
+            Stats["life"] = Count * BaseStats["life"];
+            Stats["attack"] = Count * BaseStats["attack"];
+            Stats["defense"] = Count * BaseStats["defense"];
+        }
+
+        internal int GetCountFromLife(double totalLife)
+        {
+            double lifePerUnit = BaseStats["life"];
+            int count = (int)Math.Ceiling(totalLife / lifePerUnit);
+            return count;
         }
     }
 }

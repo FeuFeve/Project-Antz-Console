@@ -18,9 +18,9 @@ namespace Project_Antz_Console
             
             // Testing
             Player toAttack = server1.Players["Player0"];
-            toAttack.Lay("jsn", 1000);
-            toAttack.Lay("js", 250);
-            toAttack.Lay("tk", 100);
+            toAttack.Lay("jsn", 100000);
+            toAttack.Lay("js", 10000);
+            toAttack.Lay("tk", 5000);
 
             bool play = true;
             while (play)
