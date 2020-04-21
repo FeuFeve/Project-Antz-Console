@@ -1,0 +1,23 @@
+﻿[
+  {
+    "name": "Young Dwarves",
+    "command_name": "jsn",
+    "life": 8,
+    "attack": 3,
+    "defense": 2
+  },
+  {
+    "name": "Young Soldiers",
+    "command_name": "js",
+    "life": 16,
+    "attack": 10,
+    "defense": 9
+  },
+  {
+    "name": "Tanks",
+    "command_name": "tk",
+    "life": 35,
+    "attack": 55,
+    "defense": 1
+  }
+]
